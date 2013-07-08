@@ -107,10 +107,6 @@ Dialog.prototype.render = function(options){
   } else if (msg) {
     el.find('p').replaceWith(msg.el || msg);
   }
-
-  setTimeout(function(){
-    el.removeClass('hide');
-  }, 0);
 };
 
 /**
@@ -216,6 +212,9 @@ Dialog.prototype.show = function(){
 
   // escape
   if (!overlay || overlay.closable) this.escapable();
+
+  // remove hide class
+  this.el.removeClass('hide');
 
   // position
   this.el.appendTo('body');
